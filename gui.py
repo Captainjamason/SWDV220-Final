@@ -1,6 +1,11 @@
+###   SWDV 220 - Wk8 Final Project
+###   JPD - 2025
+###   gui.py
+
 import tkinter as tk
 
 # Place the GUI elements in the main window.
+# I'm sure there is a more optimized way to do this, but I am not sure yet.
 def placeElements(root):
     # Application Label.
     name = tk.Label(root, text="Creature Creator")
@@ -24,21 +29,16 @@ def placeElements(root):
     entry2 = tk.Entry(creatureTwoFrame)
     entry2.grid(row=0, column=1)
 
-    # Create an empty "go" button.
-    goButton = tk.Button(root, text="Go!", width=25, height=4, command=lambda: print("Button clicked!"))
+    # Create the "go" button.
+    goButton = tk.Button(root, text="Go!", width=25, height=4, command=lambda: onGoClick())
     goButton.grid(row=3, column=0, pady=15, padx=30)
 
     # Create an empty square frame with a gray background.
     outputFrame = tk.Frame(root, bg="grey", width=250, height=200)
-    outputFrame.grid(row=1, column=1, rowspan=3, sticky="nsew", padx=25)
-    outputFrame.grid_propagate(False)  # Prevent the frame from resizing to fit its contents.
+    outputFrame.grid(row=1, column=1, rowspan=3, padx=25)
 
 
-def startGui():
-    root = tk.Tk()
-    root.title("Creature Creator")
-    root.geometry("600x250")
 
-    placeElements(root)
-
-    root.mainloop()
+# Primary function to start the actual creature creation.
+def onGoClick():
+    print("Test Go!")
