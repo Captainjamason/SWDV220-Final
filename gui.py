@@ -3,6 +3,7 @@
 ###   gui.py
 
 import tkinter as tk
+from name import genName
 
 # Place the GUI elements in the main window.
 # I'm sure there is a more optimized way to do this, but I am not sure yet.
@@ -30,7 +31,7 @@ def placeElements(root):
     entry2.grid(row=0, column=1)
 
     # Create the "go" button.
-    goButton = tk.Button(root, text="Go!", width=25, height=4, command=lambda: onGoClick())
+    goButton = tk.Button(root, text="Go!", width=25, height=4, command=lambda: onGoClick(entry1, entry2))
     goButton.grid(row=3, column=0, pady=15, padx=30)
 
     # Create an empty square frame with a gray background.
@@ -40,5 +41,8 @@ def placeElements(root):
 
 
 # Primary function to start the actual creature creation.
-def onGoClick():
-    print("Test Go!")
+def onGoClick(entry1, entry2):
+    name1 = entry1.get()
+    name2 = entry2.get()
+    genName(name1, name2)
+
